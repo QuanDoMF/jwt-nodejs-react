@@ -5,13 +5,13 @@
   "main": "sever.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node src/server.js"
+    "start": "nodemon --exec babel-node src/server.js"
   },
   "author": "Tquandoo",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "7.15.4",
-    "@babel/node": "7.15.4",
+    "@babel/core": "^7.23.2",
+    "@babel/node": "^7.22.19",
     "@babel/preset-env": "7.15.4",
     "body-parser": "1.19.1",
     "dotenv": "10.0.0",
