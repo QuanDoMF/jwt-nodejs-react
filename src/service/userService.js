@@ -1,6 +1,7 @@
 import mysql from "mysql2/promise";
 import bcrypt from "bcryptjs";
 import bluebird from "bluebird";
+import connection from "../config/connectDB";
 
 const salt = bcrypt.genSaltSync(10);
 
@@ -9,6 +10,8 @@ const hashUserPassword = (userPassword) => {
 
   return hashPassword;
 };
+// test connectDB
+connection();
 
 const createNewUser = async (email, password, username) => {
   let hashPass = hashUserPassword(password);
