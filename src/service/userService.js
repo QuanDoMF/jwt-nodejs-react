@@ -26,19 +26,18 @@ const createNewUser = async (email, password, username) => {
 };
 
 const getUserList = async () => {
-  // const connection = await mysql.createConnection({
-  //   host: "localhost",
-  //   user: "root",
-  //   database: "jwt",
-  //   Promise: bluebird,
-  // });
-  // let user = [];
-  // try {
-  //   const [rows, fields] = await connection.execute("SELECT * FROM user");
-  //   return rows;
-  // } catch (error) {
-  //   console.log(">> check error", error);
-  // }
+  // test relationship
+
+  let newUser = await db.User.findOne({
+    where: { id: 1 },
+    attributes: ["id", "username", "email"],
+    include: { model: db.Group, attributes: ["name", "description"] },
+    raw: true,
+    nest: true,
+  });
+
+  console.log(">>> check new user", newUser);
+
   let users = [];
   users = await db.User.findAll();
   return users;

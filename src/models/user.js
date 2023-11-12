@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.belongsTo(models.Group); // 1 user thuộc về 1 group
+      User.belongsToMany(models.Project, { through: "Project_User" });
     }
   }
   // object relational mapping
