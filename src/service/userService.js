@@ -35,8 +35,6 @@ const getUserList = async () => {
     nest: true,
   });
 
-  console.log(">>> check new user", newUser);
-
   let users = [];
   users = await db.User.findAll();
   return users;
@@ -62,6 +60,7 @@ const updateUserInfor = async (email, username, id) => {
     { where: { id: id } }
   );
 };
+
 module.exports = {
   createNewUser,
   getUserList,

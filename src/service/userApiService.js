@@ -6,7 +6,6 @@ const getAllUser = async () => {
       attributes: ["id", "username", "email", "phone", "sex"],
       include: { model: db.Group, attributes: ["name", "description"] },
     });
-    console.log("=>>>check user: ", users);
     if (users) {
       //   let data = users.get({ plain: true });
       return {
